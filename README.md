@@ -6,7 +6,7 @@ Ensure that the server is running before using this plugin, in the future I'll t
 
 #### Commands
 
-![semantic-search-demo.gif](semantic-search-demo.gif)
+[![Neovim plugin demo](https://img.youtube.com/vi/EjFkBbcjG08/0.jpg)](https://youtu.be/EjFkBbcjG08)
 
 ```
 :SemanticSearch
