@@ -91,7 +91,7 @@ local function show_popup(results)
 		local lines = {}
 		for i, item in ipairs(items) do
 			local check = item.selected and "✓" or " "
-			table.insert(lines, string.format("%d. [%s] %s (%.2f)", i, check, item.title, item.similarity))
+			table.insert(lines, string.format("%d. [%s] [[%s]] (%.2f)", i, check, item.title, item.similarity))
 		end
 		vim.api.nvim_buf_set_lines(popup.bufnr, 0, -1, false, lines)
 	end
