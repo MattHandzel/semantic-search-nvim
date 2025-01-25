@@ -1,4 +1,5 @@
-[![Neovim plugin demo](https://img.youtube.com/vi/EjFkBbcjG08/0.jpg)](https://youtu.be/EjFkBbcjG08)
+https://github.com/user-attachments/assets/65251e1a-20f9-4b9b-b65a-ad2c1f0550f7
+
 
 #### Description
 
