@@ -20,7 +20,7 @@ local event = require("nui.utils.autocmd").event
 
 -- Function to save a key-value pair
 local function save_config(key, value)
-	local config_path = vim.fn.stdpath("data") .. "/autolink_config.json"
+	local config_path = vim.fn.stdpath("data") .. "/semantic_search_config.json"
 	local current_config = {}
 
 	-- Read existing config if it exists
@@ -44,7 +44,7 @@ end
 
 -- Function to load the entire config
 local function load_config()
-	local config_path = vim.fn.stdpath("data") .. "/autolink_config.json"
+	local config_path = vim.fn.stdpath("data") .. "/semantic_search_config.json"
 	local file = io.open(config_path, "r")
 	if file then
 		local content = file:read("*all")
@@ -208,7 +208,7 @@ function M.preview_selected()
 end
 
 -- Main command for Autolink functionality
-function M.autolink()
+function M.semantic_search()
 	local buffer_content = get_buffer_content()
 
 	-- Prepare payload for query
@@ -233,14 +233,14 @@ function M.setup(opts)
 	M.config.threshold = opts.threshold or M.config.threshold
 
 	-- Create Autolink command
-	vim.api.nvim_create_user_command("Autolink", function()
-		M.autolink()
+	vim.api.nvim_create_user_command("SemanticSearch", function()
+		M.semantic_search()
 	end, {})
 
-	vim.api.nvim_create_user_command("AutolinkSet", function(opts)
+	vim.api.nvim_create_user_command("SemanticSearchSet", function(opts)
 		local args = vim.split(opts.args, " ")
 		if #args ~= 2 then
-			print("Usage: AutolinkSet <key> <value>")
+			print("Usage: SemanticSearchSet <key> <value>")
 			return
 		end
 		local key, value = args[1], args[2]
@@ -256,7 +256,7 @@ function M.setup(opts)
 
 		save_config(key, value)
 		M.config[key] = value
-		print(string.format("Autolink %s set to %s", key, tostring(value)))
+		print(string.format("SemanticSearch %s set to %s", key, tostring(value)))
 	end, { nargs = "*" })
 end
 
