@@ -123,6 +123,7 @@ local function show_popup(results)
 	-- Set keymaps
 	vim.keymap.set("n", "<CR>", select_item, { noremap = true, silent = true, buffer = popup.bufnr })
 	vim.keymap.set("n", "<C-a>", toggle_all, { noremap = true, silent = true, buffer = popup.bufnr })
+	vim.api.nvim_buf_set_keymap(popup.bufnr, "n", "g", ":ObsidianFollowLink<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "q", function()
 		popup:unmount()
 	end, { noremap = true, silent = true, buffer = popup.bufnr })
